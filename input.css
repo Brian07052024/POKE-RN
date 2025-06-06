@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+
+
+@font-face {
+    font-family: "Cabin";
+    src: url("/assets/cabin.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+}
+
+body {
+    font-family: "Cabin", sans-serif;
+}
+
+/* .scroll-custom::-webkit-scrollbar {
+  height: 4px; 
+}
+
+.scroll-custom::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.scroll-custom::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25); 
+  border-radius: 14px;
+}
+
+
+.scroll-custom::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+} */

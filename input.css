@@ -14,6 +14,41 @@ body {
     font-family: "Cabin", sans-serif;
 }
 
+.nav-hidden{
+  display: none;
+}
+.ocultar-anim{
+  animation: ocultar 0.2s forwards;
+}
+
+.nav-visible{
+  display: block;
+  animation: mostrar 0.2s ease;
+}
+
+@keyframes mostrar{
+  0%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+@keyframes ocultar{
+  0%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  99%{
+    transform: translateY(-20px);
+
+  }
+  100%{
+    opacity: 0;
+
+  }
+}
+
 /* .scroll-custom::-webkit-scrollbar {
   height: 4px; 
 }

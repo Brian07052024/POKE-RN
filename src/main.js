@@ -1,5 +1,36 @@
 window.addEventListener("DOMContentLoaded", async () => {
     const pkmnContainer = document.getElementById("pkmns-container");
+    const formNumber = document.querySelector("#form-number");
+    const formName = document.querySelector("#form-name");
+
+    const typeFilter = document.querySelector("#type-filter");
+    const typeNav = document.querySelector("#types-nav");
+
+    typeFilter.addEventListener("click", () => {
+        if(typeNav.classList.contains("nav-hidden")){
+            typeNav.classList.remove("nav-hidden");
+            typeNav.classList.add("nav-visible");
+            
+            
+        }else if(typeNav.classList.contains("nav-visible")){
+            typeNav.classList.remove("nav-visible");
+            typeNav.classList.add("ocultar-anim")
+            setTimeout(() => {
+                typeNav.classList.add("nav-hidden");
+            }, 200);
+
+        }
+    });
+
+    formNumber.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        searchAPI(e, "number");
+    });
+
+    formName.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        searchAPI(e, "name");
+    });
 
     const typeColors = {
         normal:    "#A8A77A", fire:      "#EE8130", water:     "#6390F0",
@@ -37,6 +68,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
             const article = document.createElement("ARTICLE");
             article.classList.add("rounded-4xl", "overflow-hidden", "shadow-xl", "w-full", "border-4", "hover:-translate-y-1", "transition", "cursor-pointer");
+            article.setAttribute("id", id);
 
             const imageContainer = document.createElement("DIV");
             imageContainer.classList.add("h-60", "relative", "flex", "items-center", "justify-center", "bg-cover", "bg-center", "bg-white");
@@ -91,5 +123,23 @@ window.addEventListener("DOMContentLoaded", async () => {
             article.appendChild(infoBg);
             pkmnContainer.appendChild(article);
         });
+    }
+
+    async function searchAPI(e, type) {
+        let pokemon;
+        if (type === "name") {
+            pokemon = e.target.elements["pokemonName"].value;
+        } else {
+            pokemon = e.target.elements["pokemonNumber"].value;
+        }
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
+
+        try {
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+            construirPokemon([resultado]);
+        } catch (error) {
+            console.log(error);
+        }
     }
 });

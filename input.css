@@ -1,7 +1,4 @@
 @import "tailwindcss";
-
-
-
 @font-face {
     font-family: "Cabin";
     src: url("/assets/cabin.woff2") format("woff2");

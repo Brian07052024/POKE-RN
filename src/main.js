@@ -134,11 +134,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     formNumber.addEventListener("submit", async (e) => {
         e.preventDefault();
         searchAPI(e, "number");
+        document.querySelector("#pkmns-container").scrollIntoView({ behavior: "smooth" });
     });
 
     formName.addEventListener("submit", async (e) => {
         e.preventDefault();
         searchAPI(e, "name");
+        document.querySelector("#pkmns-container").scrollIntoView({ behavior: "smooth" });
     });
 
 

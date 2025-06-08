@@ -149,6 +149,9 @@
 
 
 // version con colores de fondo:
+
+
+
 // window.addEventListener("DOMContentLoaded", async () => {
 //     const pkmnContainer = document.getElementById("pkmns-container");
 //     const formNumber = document.querySelector("#form-number");

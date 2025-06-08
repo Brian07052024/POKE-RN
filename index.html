@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="/assets/output.css">
     <title>POKE-RN</title>
   </head>
-  <body class="">
+  <body class="overflow-y-scroll">
 
     <div class="-z-50 absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div></div>
   
     <div class="mx-auto">
-      <header class="relative flex w-full h-20">
+      <header id="header" class="relative flex w-full h-20">
 
         <a href="index.html" class="bg-red-500 w-1/3 flex gap-6 items-center justify-center rounded-br-2xl shadow-xl border-b-4 border-r-4">
           <img class="hidden md:inline-block w-32 lg:w-44" src="./src/img/POKE-RN.png" alt="Logo POKE-RN">
@@ -21,11 +21,11 @@
         </a>
 
         <nav class="w-2/3 relative">
-          <ul class="bg-red-700 h-14 border-b-4">
+          <ul class="bg-red-700 h-14 border-b-4 z-50">
             <li class="flex justify-evenly h-full items-center shadow-xl">
               <div id="type-filter" class="text-white flex items-center gap-2 cursor-pointer">
                 Type
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16" aria-label="Desplegar tipos">
+                <svg id="typeIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="transition bi bi-caret-down-fill" viewBox="0 0 16 16" aria-label="Desplegar tipos">
                   <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                 </svg>
               </div>
@@ -52,10 +52,10 @@
             </li>
           </ul>
 
-          <div id="types-nav" class="bg-black absolute w-full rounded-b-2xl nav-hidden py-2 px-1 lg:px-0 border-4 z-50">
+          <div id="types-nav" class="bg-black absolute w-full rounded-b-2xl nav-hidden py-2 px-1 lg:px-0 border-4 z-20">
             <nav>
               <ul>
-                <li class="text-white mx-1 flex flex-wrap gap-4 lg:gap-0 lg:justify-evenly lg:flex-nowrap">
+                <li id="types-inside" class="text-white mx-1 flex flex-wrap gap-4 lg:gap-0 lg:justify-evenly lg:flex-nowrap">
                   <a href="#"><img src="./src/SVG/normal.svg" alt="Normal" class="md:hover:-translate-y-0.5 md:transition size-7 lg:size-8 bg-gray-400 rounded-2xl p-1" /></a>
                   <a href="#"><img src="./src/SVG/fire.svg" alt="Fuego" class="md:hover:-translate-y-0.5 md:transition size-7 lg:size-8 bg-orange-500 rounded-2xl p-1" /></a>
                   <a href="#"><img src="./src/SVG/water.svg" alt="Agua" class="md:hover:-translate-y-0.5 md:transition size-7 lg:size-8 bg-blue-500 rounded-2xl p-1" /></a>
@@ -83,11 +83,75 @@
 
       </header>
 
-      <main class="max-w-7xl mx-auto mt-12">
-        <section id="pkmns-container" class="mx-4 grid place-items-center text-center gap-y-14 gap-x-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4"></section>
+      <main class="max-w-7xl mx-auto mt-20 mb-8">
+
+        <nav class="mx-4">
+          <ul>
+            <h2 class="mx-4 text-4xl font-bold mb-6 flex items-center gap-1">
+              <img class="size-9 saturate-200" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate">
+              REGIONS
+            </h2>
+            <li class="flex gap-x-2 gap-y-4 flex-wrap font-bold justify-evenly bg-red-700 border-black border-4 p-2 rounded-2xl">
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="kanto">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="kanto">
+                Kanto
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="johto">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="johto">
+                Johto
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="hoenn">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="hoenn">
+                Hoenn
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="sinnoh">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="sinnoh">
+                Sinnoh
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="unova">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="unova">
+                Unova
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="kalos">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="kalos">
+                Kalos
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="alola">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="alola">
+                Alola
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="galar">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="galar">
+                Galar
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="hisui">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="hisui">
+                Hisui
+              </div>
+              <div class="navGens border-4 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="paldea">
+                <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="paldea">
+                Paldea
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+
+        <div class="mx-4 mt-10">
+          <h2 class="mx-4 text-4xl font-bold mb-6 flex items-center gap-1">
+            <img class="size-9" src="./src/SVG/H2pokeball.svg" alt="PokemonsIcon">
+            PÓKEMONS
+          </h2>
+          <section id="pkmns-container" class="grid place-items-center text-center gap-y-14 gap-x-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 "></section>
+        </div>
+      
       </main>
       
     </div>
+    <a href="#header" class="fixed bottom-1 right-1 z-50 animate-bounce bg-red-500 p-1 rounded-full">
+      <img class="size-9" src="./src/SVG/Home.svg" alt="PokemonsIcon">
+    </a>
+
     <script type="module" src="/src/main.js" defer></script>
   </body>
 </html>

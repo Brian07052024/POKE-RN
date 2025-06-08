@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const typeNav = document.querySelector("#types-nav");
     const typeIcon = document.querySelector("#typeIcon");
     const navGens = document.querySelectorAll(".navGens");    
+   
 
     const regions = {
         kanto:  { start: 1,   end: 151 },
@@ -110,7 +111,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         };
     };
 
-    function construirPokemon(pokemonArray) {
+    function construirPokemon(pokemonArray, shiny) {
         pkmnContainer.innerHTML = "";
 
         pokemonArray.forEach(pokemon => {
@@ -151,26 +152,26 @@ window.addEventListener("DOMContentLoaded", async () => {
             imageContainer.appendChild(imagePkmn);
             article.appendChild(imageContainer);
 
-            // const overlay = document.createElement("DIV");
-            //     overlay.style.position = "absolute";
-            //     overlay.style.inset = "0";
-            //     overlay.style.background = "rgba(0,0,0,0.1)"; // Ajustar la opacidad
-            //     overlay.style.zIndex = "1";
+            const overlay = document.createElement("DIV");
+                overlay.style.position = "absolute";
+                overlay.style.inset = "0";
+                overlay.style.background = "rgba(0,0,0,0.1)"; //Ajustar la opacidad
+                overlay.style.zIndex = "1";
 
             // Agrega eventos para animar la imagen al pasar el mouse
             article.addEventListener("mouseenter", () => {
                 imagePkmn.classList.add("pokemon-bounce");
                 imageContainer.style.backgroundColor = colorBg;
-                // imageContainer.appendChild(overlay);
+                imageContainer.appendChild(overlay);
             });
             article.addEventListener("mouseleave", () => {
                 imagePkmn.classList.remove("pokemon-bounce");
                 imageContainer.style.backgroundColor = "#FFFFFF";
-                // imageContainer.removeChild(overlay);
+                imageContainer.removeChild(overlay);
             });
 
             const infoBg = document.createElement("DIV");
-            infoBg.classList.add("bg-black", "h-24", "text-white");
+            infoBg.classList.add("bg-black", "h-32", "text-white", "flex", "flex-col", "justify-center");
 
             const infoContainer = document.createElement("DIV");
             infoContainer.classList.add("mx-3", "py-1", "flex", "flex-col", "gap-2");

@@ -1,13 +1,13 @@
 window.addEventListener("DOMContentLoaded", async () => {
     const pkmnContainer = document.getElementById("pkmns-container");
+
     const formNumber = document.querySelector("#form-number");
     const formName = document.querySelector("#form-name");
+
     const typeFilter = document.querySelector("#type-filter");
-    const typeNav = document.querySelector("#types-nav");
-    const typeIcon = document.querySelector("#typeIcon");
+
     const navGens = document.querySelectorAll(".navGens");    
    
-
     const regions = {
         kanto:  { start: 1,   end: 151 },
         johto:  { start: 152, end: 251 },
@@ -30,11 +30,34 @@ window.addEventListener("DOMContentLoaded", async () => {
         dark:     "#705746", steel:   "#B7B7CE", fairy:   "#D685AD"
     };
 
-    let region = "kanto"; // default
-    let lastRegion = "kanto";
-    let activeType;
+    let region = "kanto"; // default kanto
+    let lastRegion = "kanto";// default kanto
+    let activeType = "all";// default all
+    let lastType = "all"; // <--- Agrega esto
 
-    
+    typeFilter.addEventListener("click", (e) => {
+        // Detecta el tipo seleccionado correctamente
+        let typeId = e.target.id;
+        // Si el click fue en el IMG, toma el id del padre
+        if (!typeId && e.target.parentElement) {
+            typeId = e.target.parentElement.id;
+        }
+        // Solo si es un tipo válido
+        if (typeId && typeId !== "type-filter") {
+            // Quita la animación del último tipo
+            if (lastType) {
+                const lastTypeDiv = document.getElementById(lastType);
+                if (lastTypeDiv) lastTypeDiv.classList.remove("animate-pingv2");
+            }
+            // Aplica la animación al tipo actual
+            const currentTypeDiv = document.getElementById(typeId);
+            if (currentTypeDiv) currentTypeDiv.classList.add("animate-pingv2");
+
+            activeType = typeId;
+            lastType = typeId;
+            renderRegion(region, 10, activeType);
+        }
+    });
 
     navGens.forEach(link => {
         link.addEventListener("click", (e) => {
@@ -47,33 +70,9 @@ window.addEventListener("DOMContentLoaded", async () => {
         renderRegion(region);
     };
 
-    typeFilter.addEventListener("click", () => {
-        if (typeNav.classList.contains("nav-hidden")) {
-            typeNav.classList.remove("nav-hidden");
-            typeNav.classList.add("nav-visible");
-            typeIcon.classList.add("rotate-180");
-        } else if (typeNav.classList.contains("nav-visible")) {
-            typeNav.classList.remove("nav-visible");
-            typeNav.classList.add("ocultar-anim");
-            typeIcon.classList.remove("rotate-180");
-            setTimeout(() => {
-                typeNav.classList.add("nav-hidden");
-            }, 200);
-        };
-    });
-
-    formNumber.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        searchAPI(e, "number");
-    });
-
-    formName.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        searchAPI(e, "name");
-    });
-
-    async function renderRegion(regionName, pokemonCallForLotes = 20) {
+    async function renderRegion(regionName, pokemonCallForLotes = 10, typeSelected) {
         pkmnContainer.innerHTML = "";
+        typeSelected = activeType;
 
         const actualRegion = document.querySelector(`#${regionName}`);
 
@@ -103,15 +102,47 @@ window.addEventListener("DOMContentLoaded", async () => {
             );
             try {
                 const batchResults = await Promise.all(batchFetches);
-                pokemons = pokemons.concat(batchResults);
-                construirPokemon(pokemons);
+
+                if(activeType !== "all"){
+                    const batchFiltrado = batchResults.filter( pokemon =>
+                    pokemon.types.some(tipo => tipo.type.name === activeType) ); 
+                    pokemons = pokemons.concat(batchFiltrado);
+                    construirPokemon(pokemons);
+                }else{
+                    pokemons = pokemons.concat(batchResults);
+                    construirPokemon(pokemons);
+                }           
+        
+                
             } catch (error) {
-                console.error("Error al consultar la API:", error);
+                pkmnContainer.innerHTML = `
+                    <div class="absolute inset-0 flex flex-col gap-4 items-center justify-center py-10 bg-black/90 ">
+                        <img src="./src/img/error-pokemon.png" alt="Error" class="w-40 h-40 mb-4" />
+                        <p class="text-red-700 font-bold text-2xl">¡Algo salió mal!</p>
+                        <p class="text-red-300 font-bold text-2xl">[Pókemon desconocido]</p>
+                        <a href="index.html" class="inline-block py-1 px-4 bg-cyan-600 text-4xl text-white rounded-2xl border-black border-4">
+                            Volver
+                        </a>
+                    </div>
+                `;
             };
         };
+
+        region = actualRegion.id;
     };
 
-    function construirPokemon(pokemonArray, shiny) {
+    formNumber.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        searchAPI(e, "number");
+    });
+
+    formName.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        searchAPI(e, "name");
+    });
+
+
+    function construirPokemon(pokemonArray) {
         pkmnContainer.innerHTML = "";
 
         pokemonArray.forEach(pokemon => {
@@ -225,14 +256,23 @@ window.addEventListener("DOMContentLoaded", async () => {
         } else {
             pokemon = e.target.elements["pokemonNumber"].value;
         }
-        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;                                    
 
         try {
             const respuesta = await fetch(url);
             const resultado = await respuesta.json();
             construirPokemon([resultado]);
         } catch (error) {
-            console.log(error);
+            pkmnContainer.innerHTML = `
+                <div class="absolute inset-0 flex flex-col gap-4 items-center justify-center py-10 bg-black/90 ">
+                    <img src="./src/img/error-pokemon.png" alt="Error" class="w-40 h-40 mb-4" />
+                    <p class="text-red-700 font-bold text-2xl">¡Algo salió mal!</p>
+                    <p class="text-red-300 font-bold text-2xl">[Pókemon desconocido]</p>
+                    <a href="index.html" class="inline-block py-1 px-4 bg-cyan-600 text-4xl text-white rounded-2xl border-black border-4">
+                        Volver
+                    </a>
+                </div>
+            `;
         };
     };
 });

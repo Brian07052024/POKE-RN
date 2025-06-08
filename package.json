@@ -1,5 +1,6 @@
 {
   "name": "poke-rn",
+  "description": "Pokedex con filtros y busqueda de todos los pokemon existentes",
   "private": true,
   "version": "0.0.0",
   "type": "module",

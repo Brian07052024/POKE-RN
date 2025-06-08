@@ -14,18 +14,6 @@ body {
     font-family: "Cabin", sans-serif;
 }
 
-.nav-hidden{
-  display: none;
-}
-.ocultar-anim{
-  animation: ocultar 0.2s forwards;
-}
-
-.nav-visible{
-  display: block;
-  animation: mostrar 0.2s ease;
-}
-
 @keyframes bounce-img {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -35,52 +23,12 @@ body {
   animation: bounce-img 0.3s infinite;
 }
 
-@keyframes mostrar{
-  0%{
-    transform: translateY(-1px);
-  }
-  100%{
-    transform: translateY(0);
-  }
+.animate-pingv2{
+  animation: pingv2 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* ping 1s cubic-bezier(0, 0, 0.2, 1) infinite */
 }
-@keyframes ocultar{
-  0%{
-    opacity: 1;
-    transform: translateX(0);
-  }
-  99%{
-    transform: translateX(20px);
 
-  }
-  100%{
-    opacity: 0;
-
+@keyframes pingv2 {
+  50% {
+    opacity: 0.5;
   }
 }
-
-/* .scroll-custom::-webkit-scrollbar {
-  height: 4px; 
-}
-
-.scroll-custom::-webkit-scrollbar-track {
-  background: transparent; 
-}
-
-.scroll-custom::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.25); 
-  border-radius: 14px;
-}
-
-
-.scroll-custom::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 14px;
-}
-
-.scrollbar-hide {
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; 
-} */

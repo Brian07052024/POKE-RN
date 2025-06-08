@@ -254,9 +254,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     async function searchAPI(e, type) {
         let pokemon;
         if (type === "name") {
-            pokemon = e.target.elements["pokemonName"].value;
+            pokemon = e.target.elements["pokemonName"].value.trim();
+            pokemon.trim();
         } else {
-            pokemon = e.target.elements["pokemonNumber"].value;
+            pokemon = e.target.elements["pokemonNumber"].value.trim();
         }
         const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;                                    
 

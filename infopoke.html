@@ -10,8 +10,10 @@
   </head>
 
   <body class="overflow-y-scroll">
+    <div class="absolute top-0 z-[-2] h-screen w-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+
     <div class="mx-auto">
-        <header id="header" class="relative flex w-full h-20">
+      <header id="header" class="relative flex w-full h-20">
 
         <a href="index.html" class="bg-gradient-to-r from-red-500 to-red-600 w-1/3 flex gap-6 items-center justify-center rounded-br-2xl shadow-xl border-b-[3px] border-r-[3px]">
           <img class="hidden md:inline-block w-32 lg:w-44" src="./src/img/POKE-RN.png" alt="Logo POKE-RN">
@@ -46,6 +48,68 @@
         </nav>
 
       </header>
+
+      <main class="max-w-7xl mb-8 mt-16 flex mx-auto">
+
+        <div class="w-full flex flex-col gap-16 mx-4">
+
+          <section class="w-full flex flex-col items-center gap-2 lg:flex-row">
+            
+            <div class="order-2 lg:order-1 w-full flex flex-col gap-5 md:gap-1">
+              <div class="flex flex-col md:flex-row gap-2">
+                <div class="bg-black w-full text-white min-w-2xs shadow-md min-h-12 flex items-center justify-center px-4 py-2 font-bold">Name</div>
+                <div id="viewName" class="bg-white justify-center w-full min-w-2xs shadow-md min-h-12 flex items-center pl-2 px-4 py-2"></div>
+              </div>
+              <div class="flex flex-col md:flex-row gap-2">
+                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Type</div>
+                <div id="viewType" class="bg-white min-w-2xs shadow-md min-h-12 w-full flex items-center justify-evenly pl-2 px-4 py-2"></div>
+              </div>
+              <div class="flex flex-col md:flex-row gap-2">
+                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Pokedex</div>
+                <div id="viewNumber" class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2"></div>
+              </div>
+              <div class="flex flex-col md:flex-row gap-2">
+                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Height</div>
+                <div id="viewHeight" class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2"></div>
+              </div>
+              <div class="flex flex-col md:flex-row gap-2">
+                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Weight</div>
+                <div id="viewWeight" class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2"></div>
+              </div>
+              <div class="flex flex-col md:flex-row gap-2">
+                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Base xp</div>
+                <div class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2">
+                  <progress id="viewExp" min="36" max="608" class="w-full"></progress>
+                </div>
+              </div>
+            </div>
+
+            <div class="order-1 lg:order-2 w-full flex justify-center items-center relative">
+              <img src="pokeball.png" alt="" class="h-64 object-contain">
+              <img id="viewSprite" src="" alt="" class="absolute">
+            </div>
+
+          </section>
+
+          <section class="w-full flex flex-col md:flex-row gap-2">
+
+            <div id="viewAbilities" class="w-full flex flex-col gap-2"> 
+              <p class="text-center min-h-12 bg-black text-white font-bold flex justify-center items-center">Abilities</p>
+            </div>
+
+            <div class="w-full flex flex-col gap-2"> 
+              <p class="text-center min-h-12 bg-black text-white font-bold flex justify-center items-center">Pókemon description</p>
+              <div class="shadow-md">
+                <p id="viewDescription" class="px-4 py-2"></p>
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+
+      </main>
+      
     </div>
     <script type="module" src="./src/info.js" defer></script>
   </body>

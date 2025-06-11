@@ -7,6 +7,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     const typeFilter = document.querySelector("#type-filter");
 
     const navGens = document.querySelectorAll(".navGens");    
+
+    const filterBar = document.querySelectorAll(".filter-bar");
+    // console.log(filterBar);
+    
    
     const regions = {
         kanto:  { start: 1,   end: 151 },
@@ -33,7 +37,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     let region = "kanto"; // default kanto
     let lastRegion = "kanto";// default kanto
     let activeType = "all";// default all
-    let lastType = "all"; // <--- Agrega esto
+    let lastType = "all"; // default
 
     typeFilter.addEventListener("click", (e) => {
         // Detecta el tipo seleccionado correctamente
@@ -56,13 +60,16 @@ window.addEventListener("DOMContentLoaded", async () => {
             activeType = typeId;
             lastType = typeId;
             renderRegion(region, 10, activeType);
+            
         }
+        
     });
 
     navGens.forEach(link => {
         link.addEventListener("click", (e) => {
             const changeRegion = e.target.id;
             renderRegion(changeRegion);
+            
         });
     });
 
@@ -127,7 +134,7 @@ window.addEventListener("DOMContentLoaded", async () => {
                 `;
             };
         };
-
+        
         region = actualRegion.id;
     };
 
@@ -155,12 +162,14 @@ window.addEventListener("DOMContentLoaded", async () => {
              
             const tipos = types.map(t => t.type.name);
 
-            const article = document.createElement("ARTICLE");
+            const article = document.createElement("A");
             article.classList.add(
-                "rounded-4xl", "overflow-hidden", "shadow-xl", "w-full", "border-4",
+                "rounded-4xl", "overflow-hidden", "shadow-xl", "w-full", "border-[3px]",
                 "hover:-translate-y-1", "transition", "cursor-pointer", "z-10"
             );
             article.setAttribute("id", id);
+            article.setAttribute("href", `infoPoke.html?id=${id}`);
+            
 
             const imageContainer = document.createElement("DIV");
             imageContainer.classList.add(
@@ -193,14 +202,16 @@ window.addEventListener("DOMContentLoaded", async () => {
 
             // Agrega eventos para animar la imagen al pasar el mouse
             article.addEventListener("mouseenter", () => {
-                imagePkmn.classList.add("pokemon-bounce");
+                imagePkmn.classList.add("transition", "scale-[130%]", "-translate-y-5");
                 imageContainer.style.backgroundColor = colorBg;
                 imageContainer.appendChild(overlay);
+                imageBg.classList.add("animate-pingv3")
             });
             article.addEventListener("mouseleave", () => {
-                imagePkmn.classList.remove("pokemon-bounce");
+                imagePkmn.classList.remove("scale-[130%]", "-translate-y-5");
                 imageContainer.style.backgroundColor = "#FFFFFF";
                 imageContainer.removeChild(overlay);
+                imageBg.classList.remove("animate-pingv3")
             });
 
             const infoBg = document.createElement("DIV");
@@ -224,13 +235,37 @@ window.addEventListener("DOMContentLoaded", async () => {
             typeContainer.classList.add("flex", "justify-evenly", "uppercase");
 
             tipos.forEach(tipo => {
-                const typeInfo = document.createElement("P");
+                // Contenedor principal
+                const typeInfo = document.createElement("div");
                 typeInfo.classList.add(
-                    "w-24", "rounded-2xl", "px-4", "py-1", "text-white",
-                    "font-bold", "text-center", "outline-2"
+                    "flex", "items-center", "w-32", "rounded-4xl", "overflow-hidden", "bg-gray-200", "border-[3px]", "border-white"
                 );
-                typeInfo.textContent = tipo;
-                typeInfo.style.backgroundColor = typeColors[tipo] || "#FFD700";
+
+                // Icono con fondo de tipo e inclinación
+                const iconBg = document.createElement("div");
+                iconBg.classList.add(
+                    "flex", "items-center", "justify-center",
+                    "w-10", "h-8", "shadow-2xl", "skew-x-[-20deg]", "-ml-[1px]"
+                ); // <-- Agrega un margen izquierdo negativo
+                iconBg.style.backgroundColor = typeColors[tipo] || "#FFD700";
+
+                const icon = document.createElement("img");
+                icon.src = `./src/SVG/${tipo}.svg`;
+                icon.alt = tipo;
+                icon.classList.add("w-6", "h-6", "skew-x-[20deg]");
+
+                iconBg.appendChild(icon);
+
+                // Nombre del tipo con fondo gris
+                const typeName = document.createElement("span");
+                typeName.textContent = tipo.toUpperCase();
+                typeName.classList.add(
+                    "flex-1", "font-bold", "text-center", "rounded-r-2xl", "text-gray-900",
+                    "bg-gray-200", "px-3", "py-1"
+                );
+
+                typeInfo.appendChild(iconBg);
+                typeInfo.appendChild(typeName);
                 typeContainer.appendChild(typeInfo);
             });
 
@@ -245,8 +280,15 @@ window.addEventListener("DOMContentLoaded", async () => {
             if (pokemonArray.length === 1) {
                 article.classList.add("max-w-md", "mx-auto");
                 pkmnContainer.classList.remove("md:grid-cols-2", "xl:grid-cols-3");
+                // filterBar.forEach(ul => {
+                //     ul.classList.add("hidden");
+                // });
+
             } else {
                 pkmnContainer.classList.add("md:grid-cols-2", "xl:grid-cols-3", "row-span-3");
+                // filterBar.forEach(ul => {
+                //     ul.classList.remove("hidden");
+                // });
             }
         });
     };
@@ -278,4 +320,5 @@ window.addEventListener("DOMContentLoaded", async () => {
             `;
         };
     };
+    
 });

@@ -11,15 +11,6 @@ body {
     font-family: "Cabin", sans-serif;
 }
 
-@keyframes bounce-img {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-.pokemon-bounce {
-  animation: bounce-img 0.3s infinite;
-}
-
 .animate-pingv2{
   animation: pingv2 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* ping 1s cubic-bezier(0, 0, 0.2, 1) infinite */
 }
@@ -27,5 +18,16 @@ body {
 @keyframes pingv2 {
   50% {
     opacity: 0.5;
+  }
+}
+
+.animate-pingv3{
+  animation: pingv3 1s cubic-bezier(0, 0, 0.2, 1) forwards;
+} 
+
+@keyframes pingv3 {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }

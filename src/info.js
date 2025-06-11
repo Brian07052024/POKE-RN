@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const viewHeight = document.querySelector("#viewHeight");
     const viewWeight = document.querySelector("#viewWeight");
     const viewExp = document.querySelector("#viewExp");
+    const viewExpNumber = document.querySelector("#viewExpNumber");
     const viewSprite = document.querySelector("#viewSprite");
     const viewAbilities = document.querySelector("#viewAbilities");
     const viewDescription = document.querySelector("#viewDescription");
@@ -84,6 +85,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     viewWeight.textContent = `${weight * 0.1} Kg`;
     viewHeight.textContent = `${(height * 0.1).toFixed(1)} M`;
     viewExp.setAttribute("value", base_experience);
+    viewExpNumber.innerHTML = `${base_experience} <span class="text-cyan-500 font-bold">PE</span>`;
     viewSprite.src = `https://play.pokemonshowdown.com/sprites/ani/${name.toLowerCase()}.gif`;
 
     function abilitiesDescription() {

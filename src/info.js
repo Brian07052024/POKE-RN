@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-    viewName.textContent = name;
+    viewName.textContent = name.charAt(0).toUpperCase() + name.slice(1);
 
     const tipos = types.map(t => t.type.name);
     tipos.forEach(tipo => {

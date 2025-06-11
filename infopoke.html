@@ -22,28 +22,6 @@
 
         <nav class="w-2/3 relative">
           <ul class="bg-gradient-to-r from-red-600 to-red-700 h-14 border-b-[3px] z-50">
-            <li class="flex justify-evenly h-full items-center shadow-xl">
-              
-              <form id="form-number" class="buscar w-20 overflow-hidden md:w-auto bg-white rounded-2xl py-1 px-2 flex gap-2 border-[3px]">
-                <button id="search-number" type="submit" class="cursor-pointer text-black" aria-label="Buscar por número">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="hidden md:block bi bi-search" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                  </svg>
-                </button>
-                <label for="pokemonNumber" class="sr-only">Buscar por número</label>
-                <input id="pokemonNumber" name="pokemonNumber" placeholder="#00" type="number" min="1" max="1025" step="1" class="border-none text-left md:text-center focus:outline-none">
-              </form>
-
-              <form id="form-name" class="buscar w-20 overflow-hidden md:w-auto bg-white rounded-2xl py-1 px-2 flex gap-2 border-[3px]">
-                <button id="search-name" type="submit" class="cursor-pointer text-black" aria-label="Buscar por nombre">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="hidden md:block bi bi-search" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                  </svg>
-                </button>
-                <label for="pokemonName" class="sr-only">Buscar por nombre</label>
-                <input id="pokemonName" name="pokemonName" placeholder="Name" type="search" class="border-none text-left md:text-center focus:outline-none">
-              </form>
-            </li>
           </ul>
         </nav>
 
@@ -87,7 +65,7 @@
 
             <div class="order-1 lg:order-2 w-full flex justify-center items-center relative">
               <img src="pokeball.png" alt="" class="h-64 object-contain">
-              <img id="viewSprite" src="" alt="" class="absolute">
+              <img id="viewSprite" src="" alt="" class="absolute size-32 object-contain">
             </div>
 
           </section>

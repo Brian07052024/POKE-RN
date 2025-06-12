@@ -1,6 +1,6 @@
 import { viewPokemon } from "./API.js";
-import { typeColors } from "./objectsSources.js"
-
+import { typeColors } from "./constants.js";
+import { extractTypes } from "./typesPokemon.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
     const viewName = document.querySelector("#viewName");
@@ -45,48 +45,41 @@ window.addEventListener("DOMContentLoaded", async () => {
     viewName.textContent = name.charAt(0).toUpperCase() + name.slice(1);
 
     const tipos = types.map(t => t.type.name);
-    tipos.forEach(tipo => {
-
-        // Contenedor principal
-        const typeInfo = document.createElement("div");
-        typeInfo.classList.add(
-            "flex", "items-center", "overflow-hidden", "bg-gray-200", "border-[3px]", "border-black", "rounded-4xl"
-        );
-
-        // Icono con fondo de tipo e inclinación
-        const iconBg = document.createElement("div");
-        iconBg.classList.add(
-            "flex", "items-center", "justify-center",
-            "w-10", "h-8", "shadow-2xl", "skew-x-[-20deg]", "-ml-[1px]"
-        ); // <-- Agrega un margen izquierdo negativo
-        iconBg.style.backgroundColor = typeColors[tipo] || "#FFD700";
-
-        const icon = document.createElement("img");
-        icon.src = `./src/SVG/${tipo}.svg`;
-        icon.alt = tipo;
-        icon.classList.add("w-6", "h-6", "skew-x-[20deg]");
-
-        iconBg.appendChild(icon);
-
-        // Nombre del tipo con fondo gris
-        const typeName = document.createElement("span");
-        typeName.textContent = tipo.toUpperCase();
-        typeName.classList.add(
-            "flex-1", "font-bold", "text-center", "text-gray-900",
-            "bg-gray-200", "px-3", "py-1"
-        );
-
-        typeInfo.appendChild(iconBg);
-        typeInfo.appendChild(typeName);
-        viewType.appendChild(typeInfo);
-    });
+    extractTypes(viewType, tipos, "black")
 
     viewNumber.textContent = numberTransofrom(id);
     viewWeight.textContent = `${weight * 0.1} Kg`;
     viewHeight.textContent = `${(height * 0.1).toFixed(1)} M`;
     viewExp.setAttribute("value", base_experience);
     viewExpNumber.innerHTML = `${base_experience} <span class="text-cyan-500 font-bold">PE</span>`;
-    viewSprite.src = `https://play.pokemonshowdown.com/sprites/ani/${name.toLowerCase()}.gif`;
+    const animatedSpriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`;
+    viewSprite.src = animatedSpriteUrl;
+    viewSprite.onerror = () => {
+        viewSprite.src = front_default;
+    };
+
+    const adjustSpriteMargin = () => {
+        if (viewSprite.clientHeight > 95) {
+            viewSprite.classList.add("-mt-16");
+            viewSprite.classList.remove("-mt-14");
+            viewSprite.classList.remove("-mt-6");
+        } else if (viewSprite.clientHeight > 85) {
+            viewSprite.classList.add("-mt-14");
+            viewSprite.classList.remove("-mt-10");
+            viewSprite.classList.remove("-mt-6");
+        } else {
+            viewSprite.classList.remove("-mt-14");
+            viewSprite.classList.remove("-mt-10");
+            viewSprite.classList.add("-mt-6");
+        }
+    };
+
+    // Después de asignar el src:
+    viewSprite.onload = adjustSpriteMargin;
+    viewSprite.onerror = () => {
+        viewSprite.src = front_default;
+        viewSprite.onload = adjustSpriteMargin;
+    };
 
     function abilitiesDescription() {
         (async () => {

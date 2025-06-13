@@ -1,7 +1,12 @@
 import { typeColors, regions } from "./constants.js";
 import { buildPokemon } from "./buildPokemon.js";
+const spinnerShow = document.getElementById('spinner');
+
 
 export async function renderRegion(pkmnContainer, renderToken, activeType, lastRegion, regionName, pokemonCallForLotes = 50, typeSelected) {
+
+    spinnerShow.classList.remove("hidden");
+
     renderToken++; // Incrementa el token global
     const myToken = renderToken; // Guarda el token local
     pkmnContainer.innerHTML = "";
@@ -66,6 +71,8 @@ export async function renderRegion(pkmnContainer, renderToken, activeType, lastR
     if (myToken === renderToken) {
         buildPokemon(pokemons, pkmnContainer);
     }
+    spinnerShow.classList.add("hidden");
 
     return { region: actualRegion.id, lastRegion: actualRegion.id };
+
 };

@@ -1,5 +1,8 @@
 import { typeColors } from "./constants.js";
 export function extractTypes(wichContainer, tipos, borderColor) {
+    const spinnerShow = document.getElementById('spinner');
+    spinnerShow.classList.remove("hidden");
+
     tipos.forEach(tipo => {
 
         // Contenedor principal
@@ -35,5 +38,6 @@ export function extractTypes(wichContainer, tipos, borderColor) {
         typeInfo.appendChild(typeName);
         wichContainer.appendChild(typeInfo);
     });
+    spinnerShow.classList.add("hidden");
 
 }   

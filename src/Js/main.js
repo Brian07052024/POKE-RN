@@ -15,6 +15,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     const filterBar = document.querySelectorAll(".filter-bar");
     // console.log(filterBar);
 
+    const spinnerShow = document.getElementById('spinner');
+
     let region = "kanto"; // default kanto
     let lastRegion = "kanto";// default kanto
     let activeType = "all";// default all
@@ -128,5 +130,11 @@ window.addEventListener("DOMContentLoaded", async () => {
         `;
         };
     };
+
+    if(pkmnContainer.childElementCount >= 1){
+        spinnerShow.classList.add("hidden");
+    }else{
+        spinnerShow.classList.remove("hidden");
+    }
 
 });

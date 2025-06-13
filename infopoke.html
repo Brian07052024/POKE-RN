@@ -1,100 +1,135 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explora la Pokédex de la primera generación de Pokémon con POKE-RN. Busca, filtra y descubre información y tipos de los 151 Pokémon originales.">
-    <link rel="stylesheet" href="/assets/output.css">
-    <title>POKE-RN</title>
-  </head>
 
-  <body class="overflow-y-scroll">
-    <div class="absolute -z-50 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Explora la Pokédex de la primera generación de Pokémon con POKE-RN. Busca, filtra y descubre información y tipos de los 151 Pokémon originales.">
+  <link rel="stylesheet" href="/assets/output.css">
+  <title>POKE-RN</title>
+</head>
 
-    <div class="mx-auto">
-      <header id="header" class="relative flex w-full h-20">
+<body class="overflow-y-scroll">
+  <div
+    class="absolute -z-50 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]">
+  </div>
 
-        <a href="index.html" class="prueba  relative bg-black w-1/3 flex gap-2 lg:gap-6 items-center justify-center h-14 shadow-2xl">
-          <div class="z-50 flex pt-5 gap-2 pr-6">
-            <img class="hidden md:inline-block w-32 lg:w-44" src="./src/img/POKE-RN.png" alt="Logo POKE-RN">
-            <img class="w-11" src="./src/SVG/Len.svg" alt="Ícono de lupa de Pokédex">
-          </div>
-        </a>
-        
-        <div class="w-2/3">
-          <div class="bg-black h-14 z-50 w-full">
-            <p class="text-white font-bold text-xl text-center pt-3">Pokémon Summary</p>
-          </div>
+  <div class="mx-auto">
+    <header id="header" class="relative flex w-full h-20">
+
+      <a href="index.html"
+        class="prueba  relative bg-black w-1/3 flex gap-2 lg:gap-6 items-center justify-center h-14 shadow-2xl">
+        <div class="z-50 flex pt-5 gap-2 pr-6">
+          <img class="hidden md:inline-block w-32 lg:w-44" src="./src/img/POKE-RN.png" alt="Logo POKE-RN">
+          <img class="w-11" src="./src/SVG/Len.svg" alt="Ícono de lupa de Pokédex">
         </div>
+      </a>
 
-      </header>
-
-      <main class="max-w-7xl mb-8 mt-16 flex mx-auto">
-
-        <div class="w-full flex flex-col gap-16 mx-4">
-
-          <section class="w-full flex flex-col items-center gap-2 lg:flex-row">
-            
-            <div class="order-2 lg:order-1 w-full flex flex-col gap-5 md:gap-1">
-              <div class="flex flex-col md:flex-row gap-2">
-                <div class="bg-black w-full text-white min-w-2xs shadow-md min-h-12 flex items-center justify-center px-4 py-2 font-bold">Name</div>
-                <div id="viewName" class="bg-white justify-center w-full min-w-2xs shadow-md min-h-12 flex items-center pl-2 px-4 py-2"></div>
-              </div>
-              <div class="flex flex-col md:flex-row gap-2">
-                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Type</div>
-                <div id="viewType" class="bg-white min-w-2xs shadow-md min-h-12 w-full flex items-center justify-evenly pl-2 px-4 py-2"></div>
-              </div>
-              <div class="flex flex-col md:flex-row gap-2">
-                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Pokedex</div>
-                <div id="viewNumber" class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2"></div>
-              </div>
-              <div class="flex flex-col md:flex-row gap-2">
-                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Height</div>
-                <div id="viewHeight" class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2"></div>
-              </div>
-              <div class="flex flex-col md:flex-row gap-2">
-                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Weight</div>
-                <div id="viewWeight" class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2"></div>
-              </div>
-              <div class="flex flex-col md:flex-row gap-2">
-                <div class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">Base xp</div>
-                <div class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2">
-                  <p id="viewExpNumber" class="w-[40%] text-center"></p>
-                  <progress id="viewExp" min="36" max="608" class="w-[60%]"></progress>
-                </div>
-              </div>
-            </div>
-
-            <div class="order-1 lg:order-2 w-full flex justify-center items-center relative min-h-36">
-              <img id="viewSpeiteBg" src="./src/img/terrain.png" alt="" class="size-72 object-contain">
-              <img id="viewSprite" src="" alt="Pókemon" class="absolute object-contain -mt-6">
-            </div>
-
-          </section>
-
-          <section class="w-full flex flex-col md:flex-row gap-2">
-
-            <div id="viewAbilities" class="w-full flex flex-col gap-2"> 
-              <p class="text-center min-h-12 bg-black text-white font-bold flex justify-center items-center">Abilities</p>
-            </div>
-
-            <div class="w-full flex flex-col gap-2"> 
-              <p class="text-center min-h-12 bg-black text-white font-bold flex justify-center items-center">Pókemon description</p>
-              <div class="shadow-md">
-                <p id="viewDescription" class="px-4 py-2"></p>
-              </div>
-            </div>
-
-          </section>
-
+      <div class="w-2/3">
+        <div class="bg-black h-14 z-50 w-full">
+          <p class="text-white font-bold text-xl text-center pt-3">Pokémon Summary</p>
         </div>
+      </div>
 
-      </main>
-      
-    </div>
-    <script type="module" src="./src/Js/info.js" defer></script>
-  </body>
+    </header>
+
+    <main class="max-w-7xl mb-8 mt-16 flex mx-auto">
+
+      <div class="w-full flex flex-col gap-16 mx-4">
+
+        <section class="w-full flex flex-col items-center gap-2 lg:flex-row">
+
+          <div class="order-2 lg:order-1 w-full flex flex-col gap-5 md:gap-1">
+            <div class="flex flex-col md:flex-row gap-2">
+              <div
+                class="bg-black w-full text-white min-w-2xs shadow-md min-h-12 flex items-center justify-center px-4 py-2 font-bold">
+                Name</div>
+              <div id="viewName"
+                class="bg-white justify-center w-full min-w-2xs shadow-md min-h-12 flex items-center pl-2 px-4 py-2">
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-2">
+              <div
+                class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">
+                Type</div>
+              <div id="viewType"
+                class="bg-white min-w-2xs shadow-md min-h-12 w-full flex items-center justify-evenly pl-2 px-4 py-2">
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-2">
+              <div
+                class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">
+                Pokedex</div>
+              <div id="viewNumber"
+                class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2">
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-2">
+              <div
+                class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">
+                Height</div>
+              <div id="viewHeight"
+                class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2">
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-2">
+              <div
+                class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">
+                Weight</div>
+              <div id="viewWeight"
+                class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2">
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-2">
+              <div
+                class="bg-gray-300 text-black min-w-2xs shadow-md min-h-12 w-full flex items-center justify-center px-4 py-2 font-bold">
+                Base xp</div>
+              <div class="bg-white justify-center min-w-2xs shadow-md min-h-12 w-full flex items-center pl-2 px-4 py-2">
+                <p id="viewExpNumber" class="w-[40%] text-center"></p>
+                <progress id="viewExp" min="36" max="608" class="w-[60%]"></progress>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 w-full flex justify-center items-center relative min-h-36">
+            <img id="viewSpeiteBg" src="./src/img/terrain.png" alt="" class="size-72 object-contain">
+
+            <div id="spinner" class="absolute object-contain h-64">
+              <div class="animate-spin rounded-full h-16 w-16">
+                <img src="./src/SVG/loading.svg" alt="">
+              </div>
+            </div>
+
+            <img id="viewSprite" src="" alt="" class="absolute object-contain -mt-6">
+          </div>
+
+        </section>
+
+        <section class="w-full flex flex-col md:flex-row gap-2">
+
+          <div id="viewAbilities" class="w-full flex flex-col gap-2">
+            <p class="text-center min-h-12 bg-black text-white font-bold flex justify-center items-center">Abilities</p>
+          </div>
+
+          <div class="w-full flex flex-col gap-2">
+            <p class="text-center min-h-12 bg-black text-white font-bold flex justify-center items-center">Pókemon
+              description</p>
+            <div class="shadow-md">
+              <p id="viewDescription" class="px-4 py-2"></p>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+  <script type="module" src="./src/Js/info.js" defer></script>
+</body>
 
 
 </html>

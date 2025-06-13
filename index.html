@@ -13,15 +13,17 @@
     <div class="absolute -z-50 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
   
     <div class="mx-auto">
-      <header id="header" class="relative flex w-full h-20">
+      <header id="header" class="relative flex w-full h-20 fade-in-bottom">
 
-        <a href="index.html" class="bg-gradient-to-r from-red-500 to-red-600 w-1/3 flex gap-6 items-center justify-center rounded-br-2xl shadow-xl border-b-[3px] border-r-[3px]">
-          <img class="hidden md:inline-block w-32 lg:w-44" src="./src/img/POKE-RN.png" alt="Logo POKE-RN">
-          <img class="w-11" src="./src/SVG/Len.svg" alt="Ícono de lupa de Pokédex">
+        <a href="index.html" class="prueba relative bg-black w-1/3 flex gap-2 lg:gap-6 items-center justify-center h-14 shadow-2xl">
+          <div class="z-50 flex pt-5 gap-2 pr-6">
+            <img class="hidden md:inline-block w-32 lg:w-44" src="./src/img/POKE-RN.png" alt="Logo POKE-RN">
+            <img class="w-11" src="./src/SVG/Len.svg" alt="Ícono de lupa de Pokédex">
+          </div>
         </a>
 
-        <nav class="w-2/3 relative">
-          <ul class="bg-gradient-to-r from-red-600 to-red-700 h-14 border-b-[3px] z-50">
+        <nav class="w-2/3">
+          <ul class="bg-black h-14 z-50 w-full">
             <li class="flex justify-evenly h-full items-center shadow-xl ">
               
               <form id="form-number" class="buscar w-20 overflow-hidden md:w-auto bg-white rounded-2xl py-1 px-2 flex gap-2 border-[3px]">
@@ -56,44 +58,44 @@
             <h2 class="mx-4 mb-2 text-4xl font-bold flex items-center gap-1">
               REGIONS
             </h2>
-            <li class="flex gap-x-2 gap-y-4 flex-wrap font-bold justify-evenly bg-red-700 border-black border-[3px] p-2 rounded-2xl">
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="kanto">
+            <li class="flex gap-x-2 gap-y-4 flex-wrap font-bold justify-evenly bg-red-700 border-black p-2 rounded-4xl shadow-lg border-2">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="kanto">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="kanto">
                 Kanto
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="johto">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="johto">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="johto">
                 Johto
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="hoenn">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="hoenn">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="hoenn">
                 Hoenn
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="sinnoh">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="sinnoh">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="sinnoh">
                 Sinnoh
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="unova">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="unova">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="unova">
                 Unova
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="kalos">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="kalos">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="kalos">
                 Kalos
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="alola">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="alola">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="alola">
                 Alola
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="galar">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="galar">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="galar">
                 Galar
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="hisui">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="hisui">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="hisui">
                 Hisui
               </div>
-              <div class="navGens border-[3px] flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="paldea">
+              <div class="navGens border-2 flex items-center hover:-translate-y-0.5 bg-white shadow-xl rounded-4xl py-1 px-2 cursor-pointer text-black hover:bg-yellow-500 transition" id="paldea">
                 <img class="saturation-200 size-4" src="./src/SVG/location-pokemon-svgrepo-com.svg" alt="locate" id="paldea">
                 Paldea
               </div>
@@ -104,26 +106,26 @@
             <h2 class="mx-4  mb-2 text-4xl font-bold flex items-center gap-1">
               TYPES
             </h2>
-            <li id="type-filter" class="flex gap-3 flex-wrap font-bold justify-evenly border-black border-[3px]  bg-red-700 p-2 rounded-2xl">
-              <div id="all" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="all" src="./src/SVG/Len.svg" alt="all" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-gray-400 rounded-2xl p-1" /><span class="mt-1">ALL</span></div>
-              <div id="normal" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="normal" src="./src/SVG/normal.svg" alt="Normal" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-gray-400 rounded-2xl p-1" /><span class="mt-1">normal</span></div>
-              <div id="fire" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="fire" src="./src/SVG/fire.svg" alt="Fuego" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-orange-500 rounded-2xl p-1" /><span class="mt-1">fire</span></div>
-              <div id="water" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="water" src="./src/SVG/water.svg" alt="Agua" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-blue-500 rounded-2xl p-1" /><span class="mt-1">water</span></div>
-              <div id="grass" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="grass" src="./src/SVG/grass.svg" alt="Planta" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-green-500 rounded-2xl p-1" /><span class="mt-1">grass</span></div>
-              <div id="electric" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="electric" src="./src/SVG/electric.svg" alt="Eléctrico" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-yellow-400 rounded-2xl p-1" /><span class="mt-1">electric</span></div>
-              <div id="ice" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="ice" src="./src/SVG/ice.svg" alt="Hielo" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-cyan-200 rounded-2xl p-1" /><span class="mt-1">ice</span></div>
-              <div id="fighting" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="fighting" src="./src/SVG/fighting.svg" alt="Lucha" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-red-700 rounded-2xl p-1" /><span class="mt-1">fighting</span></div>
-              <div id="poison" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="poison" src="./src/SVG/poison.svg" alt="Veneno" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-purple-700 rounded-2xl p-1" /><span class="mt-1">poison</span></div>
-              <div id="ground" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="ground" src="./src/SVG/ground.svg" alt="Tierra" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-yellow-700 rounded-2xl p-1" /><span class="mt-1">ground</span></div>
-              <div id="flying" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="flying" src="./src/SVG/flying.svg" alt="Volador" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-sky-300 rounded-2xl p-1" /><span class="mt-1">flying</span></div>
-              <div id="psychic" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="psychic" src="./src/SVG/psychic.svg" alt="Psíquico" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-pink-500 rounded-2xl p-1" /><span class="mt-1">psychic</span></div>
-              <div id="bug" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="bug" src="./src/SVG/bug.svg" alt="Bicho" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-lime-600 rounded-2xl p-1" /><span class="mt-1">bug</span></div>
-              <div id="rock" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="rock" src="./src/SVG/rock.svg" alt="Roca" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-yellow-800 rounded-2xl p-1" /><span class="mt-1">rock</span></div>
-              <div id="ghost" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="ghost" src="./src/SVG/ghost.svg" alt="Fantasma" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-violet-900 rounded-2xl p-1" /><span class="mt-1">ghost</span></div>
-              <div id="dragon" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="dragon" src="./src/SVG/dragon.svg" alt="Dragón" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-indigo-700 rounded-2xl p-1" /><span class="mt-1">dragon</span></div>
-              <div id="dark" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="dark" src="./src/SVG/dark.svg" alt="Siniestro" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-gray-800 rounded-2xl p-1" /><span class="mt-1">dark</span></div>
-              <div id="steel" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="steel" src="./src/SVG/steel.svg" alt="Acero" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-gray-500 rounded-2xl p-1" /><span class="mt-1">steel</span></div>
-              <div id="fairy" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="fairy" src="./src/SVG/fairy.svg" alt="Hada" class="cursor-pointer border-black border-[3px] md:hover:-translate-y-0.5 md:transition size-8 bg-pink-300 rounded-2xl p-1" /><span class="mt-1">fairy</span></div>
+            <li id="type-filter" class="flex gap-3 flex-wrap font-bold justify-evenly border-black bg-red-700 p-2 rounded-4xl shadow-lg border-2">
+              <div id="all" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="all" src="./src/SVG/Len.svg" alt="all" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-gray-400 rounded-2xl p-1" /><span class="mt-1">ALL</span></div>
+              <div id="normal" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="normal" src="./src/SVG/normal.svg" alt="Normal" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-gray-400 rounded-2xl p-1" /><span class="mt-1">normal</span></div>
+              <div id="fire" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="fire" src="./src/SVG/fire.svg" alt="Fuego" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-orange-500 rounded-2xl p-1" /><span class="mt-1">fire</span></div>
+              <div id="water" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="water" src="./src/SVG/water.svg" alt="Agua" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-blue-500 rounded-2xl p-1" /><span class="mt-1">water</span></div>
+              <div id="grass" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="grass" src="./src/SVG/grass.svg" alt="Planta" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-green-500 rounded-2xl p-1" /><span class="mt-1">grass</span></div>
+              <div id="electric" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="electric" src="./src/SVG/electric.svg" alt="Eléctrico" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-yellow-400 rounded-2xl p-1" /><span class="mt-1">electric</span></div>
+              <div id="ice" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="ice" src="./src/SVG/ice.svg" alt="Hielo" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-cyan-200 rounded-2xl p-1" /><span class="mt-1">ice</span></div>
+              <div id="fighting" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="fighting" src="./src/SVG/fighting.svg" alt="Lucha" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-red-700 rounded-2xl p-1" /><span class="mt-1">fighting</span></div>
+              <div id="poison" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="poison" src="./src/SVG/poison.svg" alt="Veneno" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-purple-700 rounded-2xl p-1" /><span class="mt-1">poison</span></div>
+              <div id="ground" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="ground" src="./src/SVG/ground.svg" alt="Tierra" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-yellow-700 rounded-2xl p-1" /><span class="mt-1">ground</span></div>
+              <div id="flying" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="flying" src="./src/SVG/flying.svg" alt="Volador" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-sky-300 rounded-2xl p-1" /><span class="mt-1">flying</span></div>
+              <div id="psychic" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="psychic" src="./src/SVG/psychic.svg" alt="Psíquico" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-pink-500 rounded-2xl p-1" /><span class="mt-1">psychic</span></div>
+              <div id="bug" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="bug" src="./src/SVG/bug.svg" alt="Bicho" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-lime-600 rounded-2xl p-1" /><span class="mt-1">bug</span></div>
+              <div id="rock" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="rock" src="./src/SVG/rock.svg" alt="Roca" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-yellow-800 rounded-2xl p-1" /><span class="mt-1">rock</span></div>
+              <div id="ghost" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="ghost" src="./src/SVG/ghost.svg" alt="Fantasma" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-violet-900 rounded-2xl p-1" /><span class="mt-1">ghost</span></div>
+              <div id="dragon" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="dragon" src="./src/SVG/dragon.svg" alt="Dragón" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-indigo-700 rounded-2xl p-1" /><span class="mt-1">dragon</span></div>
+              <div id="dark" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="dark" src="./src/SVG/dark.svg" alt="Siniestro" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-gray-800 rounded-2xl p-1" /><span class="mt-1">dark</span></div>
+              <div id="steel" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="steel" src="./src/SVG/steel.svg" alt="Acero" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-gray-500 rounded-2xl p-1" /><span class="mt-1">steel</span></div>
+              <div id="fairy" class="flex flex-col font-bold text-xs uppercase text-white items-center"><img id="fairy" src="./src/SVG/fairy.svg" alt="Hada" class="cursor-pointer border-2 border-black md:hover:-translate-y-0.5 md:transition size-8 bg-pink-300 rounded-2xl p-1" /><span class="mt-1">fairy</span></div>
             </li>
           </ul>
         </nav>

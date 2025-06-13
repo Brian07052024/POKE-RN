@@ -52,3 +52,36 @@ progress::-ms-fill {
   background-color: oklch(71.5% 0.143 215.221);
   border-radius: 9999px;
 }
+
+.prueba::after{
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #fb2c36;
+  position: absolute;
+  width: 110%;
+  min-width: 175px;
+  height: 100px;
+  transform: skew(-45deg);
+  z-index: 45;
+  left: -40px;
+  box-shadow: 0 15px 50px -12px rgba(0, 0, 0, 0.25);
+ 
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.fade-in-bottom {
+  animation: fade-in-bottom 0.6s ease-in-out;
+}
